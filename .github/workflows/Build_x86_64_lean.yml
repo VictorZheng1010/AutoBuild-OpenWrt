@@ -66,6 +66,14 @@ jobs:
         cd openwrt
         sed -i '11s/#//' feeds.conf.default
         
+    - name: Import external feeds
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
+        git clone https://github.com/kenzok8/small.git package/small
+        git clone https://github.com/rosywrt/luci-theme-rosy.git package/openwrt-packages/luci-theme-rosy
+        
+        
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
@@ -73,12 +81,7 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    - name: Import external feeds
-      working-directory: ./openwrt
-      run: |
-        git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-        git clone https://github.com/kenzok8/small.git package/small
-        git clone https://github.com/rosywrt/luci-theme-rosy.git package/openwrt-packages/luci-theme-rosy
+
     #    git clone https://github.com/xiaorouji/openwrt-package.git package/lienol
     #    git clone "your_github_link" package/"your_folder_name"     
 
