@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  #push:
-  #  branches: 
-  #    - master
+  push:
+    branches: 
+      - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -73,6 +73,7 @@ jobs:
         git clone https://github.com/kenzok8/openwrt-packages.git
         git clone https://github.com/kenzok8/small.git
         git clone https://github.com/rosywrt/luci-theme-rosy.git
+        git clone https://github.com/lisaac/luci-app-dockerman.git
         cd ../
         
         
